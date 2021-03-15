@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Home, Search, Create, Notification, Profile } from "./screens";
+import { Header, NavBar } from "./components";
 
 function App() {
+  const [screenIndex, toggleScreenIndex] = useState(0);
+
+  const switchScreen = (index) => {
+    toggleScreenIndex(index);
+  };
+
+  const renderScreen = () => {
+    switch (screenIndex) {
+      case 0:
+        return <Home />;
+      case 1:
+        return <Search />;
+      case 2:
+        return <Create />;
+      case 3:
+        return <Notification />;
+      case 4:
+        return <Profile />;
+      default:
+        return <Home />;
+    }
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {renderScreen()}
+      <NavBar switchScreen={switchScreen} />
     </div>
   );
 }
