@@ -1,0 +1,100 @@
+.postContainer {
+  margin-bottom: 20px;
+}
+
+.postUser {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.profilePictureContainer {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.profilePictureContainer img {
+  max-width: 100%;
+}
+
+.username {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.postImage {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.postInfo {
+  margin-left: 8px;
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.buttonsContainer button {
+  background: none;
+  border: none;
+}
+
+.heart,
+.fillHeart {
+  font-size: 24px;
+}
+
+.fillHeart {
+  color: red;
+}
+
+.commentIcon {
+  font-size: 21px;
+}
+
+.likes {
+  margin: 0;
+  margin-left: 10px;
+  margin-top: 3px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.description {
+  margin: 4px 0 0 10px;
+  font-size: 14px;
+}
+
+.userDescription {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+.date {
+  color: #d7d7d7;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.addComment {
+  margin-left: 10px;
+  display: flex;
+  margin-right: 20px;
+  justify-content: space-between;
+}
+
+.addComment input {
+  outline: none;
+  border: none;
+}
+
+.addComment button {
+  background: none;
+  border: none;
+  color: rgb(57, 165, 212);
+}

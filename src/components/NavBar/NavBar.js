@@ -22,7 +22,12 @@ const NavBar = (props) => {
     });
   };
 
-  return <div className={styles.navbarContainer}>{renderNavigation()}</div>;
+  return (
+    <div>
+      <div className={styles.hiddenPadding} />
+      <div className={styles.navbarContainer}>{renderNavigation()}</div>
+    </div>
+  );
 };
 
 export { NavBar };
