@@ -8,3 +8,9 @@ body {
 *:focus {
   outline: 0 !important;
 }
+
+a,
+a:visited {
+  text-decoration: none;
+  color: black;
+}

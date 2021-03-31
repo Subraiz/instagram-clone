@@ -1,23 +1,28 @@
 import React from "react";
 import { VscHome } from "react-icons/vsc";
+import { Link } from "react-router-dom";
 import { BsSearch, BsPlusSquare, BsHeart } from "react-icons/bs";
 import { FiUser } from "react-icons/fi";
 import styles from "./styles.module.css";
 
 const NavBar = (props) => {
-  const Icons = [VscHome, BsSearch, BsPlusSquare, BsHeart, FiUser];
+  const navItems = [
+    { icon: VscHome, path: "/" },
+    { icon: BsSearch, path: "/search" },
+    { icon: BsPlusSquare, path: "/post" },
+    { icon: BsHeart, path: "/notifications" },
+    { icon: FiUser, path: "/profile" }
+  ];
 
   const renderNavigation = () => {
-    return Icons.map((icon, i) => {
-      const Icon = icon;
+    return navItems.map((item, i) => {
+      const Icon = item.icon;
       const iconClasses =
         i === 0 ? [styles.icon, styles.home].join(" ") : styles.icon;
       return (
-        <Icon
-          key={i}
-          className={iconClasses}
-          onClick={() => props.switchScreen(i)}
-        />
+        <Link to={item.path} key={item.path} className={styles.link}>
+          <Icon className={iconClasses} />
+        </Link>
       );
     });
   };

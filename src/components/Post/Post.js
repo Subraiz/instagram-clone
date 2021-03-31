@@ -3,6 +3,7 @@ import {
   AiOutlineHeart as Heart,
   AiFillHeart as FillHeart
 } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { FaRegComment as Comment } from "react-icons/fa";
 import styles from "./styles.module.css";
 
@@ -35,7 +36,9 @@ const Post = (props) => {
         const { userId, text, postId } = comment;
         return (
           <p key={postId + userId + i} className={styles.description}>
-            <span className={styles.userDescription}>{userId}</span>
+            <Link to={`/profile/${userId}`}>
+              <span className={styles.userDescription}>{userId}</span>
+            </Link>
             {text}
           </p>
         );
@@ -52,7 +55,9 @@ const Post = (props) => {
         <div className={styles.profilePictureContainer}>
           <img src={process.env.PUBLIC_URL + user.photo} alt="user-profile" />
         </div>
-        <p className={styles.username}>{user.name}</p>
+        <Link to={`/profile/${user.id}`}>
+          <p className={styles.username}>{user.name}</p>
+        </Link>
       </div>
 
       <img className={styles.postImage} src={photoSrc} alt="post" />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styles from "./styles.module.css";
 import FileLoader from "../../components/FileLoader";
 
@@ -7,6 +8,8 @@ const Create = (props) => {
   const [desc, setDesc] = useState("");
   const [photo, setPhoto] = useState(null);
   const [error, setError] = useState(""); // to show an error message
+
+  const history = useHistory();
 
   function handleFileDragEnter(e) {
     setDragging(true);
@@ -39,23 +42,21 @@ const Create = (props) => {
     setDesc(e.target.value);
   }
   function handleSubmit(e) {
-    // TODO:
-    // 1. Prevent default behavior
     e.preventDefault();
-    // 2. Show error msg if failed and exit
+
     if (photo === null || desc === "") {
       setError("Please add photo and description");
       return;
     }
 
-    // 3. Call the storage update function passed from the parent
     props.onSubmit(photo, desc);
-    // 3. Clear error msg
+
     setError("");
+
+    history.goBack();
   }
   function handleCancel() {
-    // TODO: Notify the parent about the cancellation
-    props.onCancel();
+    history.goBack();
   }
   return (
     <div>
